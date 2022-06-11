@@ -14,12 +14,13 @@ export default function Navbar(props) {
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto">
-                <li className="nav-item active">
+                <li className="nav-item">
                 {/* <Link className="nav-link" to="/">Home</Link> */}
                 <a className="nav-link mx-2" href="#">Home</a>
                 </li>
                 <li className="nav-item">
                 {/* <Link className="nav-link" to="/about">{props.aboutText}</Link> */}
+                <a className="nav-link" href="#">About Us</a>
                 </li>
             </ul>
             <form className="d-flex">
@@ -30,7 +31,7 @@ export default function Navbar(props) {
             <form className='d-flex'>
                 <button type="button" className={`btn btn-${props.c1} btn-sm me-1`} onClick={props.color1}>Blue</button>
                 <button type="button" className={`btn btn-${props.c2} btn-sm me-1`} onClick={props.color2}>Red</button>
-                <button type="button" className={`btn btn-${props.c3} btn-sm me-3`} onClick={props.color3}>Green</button>
+                <button type="button" className={`btn btn-${props.c3} btn-sm me-1`} onClick={props.color3}>Green</button>
             </form>
 
             <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>

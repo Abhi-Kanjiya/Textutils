@@ -41,7 +41,7 @@ function App() {
           setMode("light");
           document.body.style.backgroundColor = 'white';
           showAlert("Light Mode has been enabled","success");
-          document.title = "Textutils - Light Mode";
+          // document.title = "Textutils - Light Mode";
       }
       else
       {
@@ -52,7 +52,7 @@ function App() {
         setMode("dark");
         document.body.style.backgroundColor = '#303030';
         showAlert("Dark Mode has been enabled","success");
-        document.title = "Textutils - Dark Mode";
+        // document.title = "Textutils - Dark Mode";
       }
   }
 
@@ -65,7 +65,7 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = '#281b7d';
       showAlert("Blue Mode has been enabled","success");
-      document.title = "Textutils - Blue Mode";
+      // document.title = "Textutils - Blue Mode";
   }
   const color2 = () =>
   {
@@ -76,7 +76,7 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = '#b30000';
       showAlert("Red Mode has been enabled","success");
-      document.title = "Textutils - Red Mode";
+      // document.title = "Textutils - Red Mode";
   }
   const color3 = () =>
   {
@@ -87,7 +87,7 @@ function App() {
     setMode("dark");
     document.body.style.backgroundColor = '#107026';
     showAlert("Green Mode has been enabled","success");
-    document.title = "Textutils - Green Mode";
+    // document.title = "Textutils - Green Mode";
   }
   
 
@@ -96,7 +96,7 @@ function App() {
     {/* <Router> */}
       <Navbar showAlert={showAlert} title="Textutils" aboutText="About Us" mode={mode} toggleMode={toggleMode} c1={c1} c2={c2} c3={c3} color1={color1} color2={color2} color3={color3}/>
       <Alert alert={alert}/>
-      <TextForm showAlert={showAlert} heading="Enter the Text to analyze" mode={mode} c={c} setC={setC} />
+      <TextForm showAlert={showAlert} heading="TextUtils - Word , Character , Sentence and Paragraph Counter" mode={mode} c={c} setC={setC} />
 
       {/* <Routes>
         <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter the Text to analyze" mode={mode} c={c} setC={setC} />} />
