@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.blank{
+  color: blue;
+}
+
+#myBox::placeholder,#find::placeholder,#replace::placeholder{
+  color : black;
+  opacity: 1;
+}
