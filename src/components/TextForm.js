@@ -118,28 +118,60 @@ export default function TextForm(props) {
     }
     const emailhandler = () =>
     {
-        setextractedValue("No Email Found");
-        setTimeout(() => {
-            setextractedValue("");    
-        }, 2000); 
-        let newtext = text.match(/([a-zA-Z0-9._+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+        // let regexEmail = "[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$";
+        let newtext = text.replace(/\n/g, " ").split(' ');
         let value = "";
         let counter=1;
         for (var i=0; i < newtext.length ; i++) {
-            value = value + "  (" + counter++ + ")" + newtext[i];
+            if(newtext[i].slice(-10)==="@gmail.com")
+            {
+                value = value + "  (" + counter++ + ")" + newtext[i];
+            }
         }
-        setextractedValue(value);
+        if(value==="")
+        {
+            if(text==="")
+            {
+                setextractedValue("Enter Text above To Extract Email id of format XYZ123@gmail.com");
+            }
+            else
+            {
+                setextractedValue("No Email Found");
+            }
+        }
+        else
+        {
+            setextractedValue(value);
+            props.showAlert("Email id with format XYZ123@gmail.com extracted successfully!!","success");
+        }
     }
     const phonehandler = () =>
     {
-        setextractedValue("No Phone Number Found");
-        let newtext = text.match(/([a-zA-Z0-9._+-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+        let newtext = text.replace(/\n/g, " ").split(' ');
         let value = "";
         let counter=1;
         for (var i=0; i < newtext.length ; i++) {
-            value = value + "  (" + counter++ + ")" + newtext[i];
+            if(newtext[i].length===10 && newtext[i].match(/^[0-9]+$/))
+            {
+                value = value + "  (" + counter++ + ")" + newtext[i];
+            }
         }
-        setextractedValue(value);
+        if(value==="")
+        {
+            if(text==="")
+            {
+                setextractedValue("Enter Text above To Extract Phone no of format XXXXXXXXXX");
+            }
+            else
+            {
+                setextractedValue("No Phone no Found");
+            }
+        }
+        else
+        {
+            setextractedValue(value);
+            props.showAlert("Phone no with format XXXXXXXXXX extracted successfully!!","success");
+        }
     }
     
     return (
@@ -151,30 +183,12 @@ export default function TextForm(props) {
         </div>
         
         <div>
-            <div className="row">
-                <div className="col-3">
-                    <button className={`btn btn-${props.c} mt-3 me-3 w-100`} onClick={handleUpClick}>Convert to UpperCase</button>
-                </div>
-                <div className="col-3">
-                    <button className={`btn btn-${props.c} mt-3 me-3 w-100`} onClick={handleloClick}>Convert to LowerCase</button>
-                </div>
-                <div className="col-3">
-                    <button className={`btn btn-${props.c} mt-3 me-3 w-100`} onClick={handleClear}>Clear Text</button>
-                </div>
-                <div className="col-3">
-                    <button className={`btn btn-${props.c} mt-3 me-3 w-100`} onClick={speak}>Read Text</button>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div className="row">
-                <div className="col-3">
-                    <button className={`btn btn-${props.c} mt-3 me-3 w-100`} onClick={copyclipboard}>Copy To Clipboard</button>
-                </div>
-                <div className="col-3">
-                    <button className={`btn btn-${props.c} mt-3 me-3 w-100`} onClick={RemoveSpace}>Remove Extra Space</button>
-                </div>
-            </div>
+            <button className={`btn btn-${props.c} mt-3 me-3`} onClick={handleUpClick}>Convert to UpperCase</button>
+            <button className={`btn btn-${props.c} mt-3 me-3`} onClick={handleloClick}>Convert to LowerCase</button>
+            <button className={`btn btn-${props.c} mt-3 me-3`} onClick={handleClear}>Clear Text</button>
+            <button className={`btn btn-${props.c} mt-3 me-3`} onClick={speak}>Read Text</button>
+            <button className={`btn btn-${props.c} mt-3 me-3`} onClick={copyclipboard}>Copy To Clipboard</button>
+            <button className={`btn btn-${props.c} mt-3 me-3`} onClick={RemoveSpace}>Remove Extra Space</button>
         </div>
     </div>
     <div className='container mt-3' style={{color : props.mode==='dark'?'white':'black'}}>

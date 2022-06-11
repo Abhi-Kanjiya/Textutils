@@ -16,21 +16,21 @@ export default function Navbar(props) {
             <ul className="navbar-nav me-auto">
                 <li className="nav-item active">
                 {/* <Link className="nav-link" to="/">Home</Link> */}
-                <a className="nav-link" href="#">Home</a>
+                <a className="nav-link mx-2" href="#">Home</a>
                 </li>
                 <li className="nav-item">
                 {/* <Link className="nav-link" to="/about">{props.aboutText}</Link> */}
                 </li>
             </ul>
             <form className="d-flex">
-                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button className="btn btn-outline-success me-5" type="submit">Search</button>
+                <input className="form-control mx-2" type="search" placeholder="Search" aria-label="Search"/>
+                <a className="btn btn-outline-success me-5" href='#'>Search</a>
             </form>
 
             <form className='d-flex'>
                 <button type="button" className={`btn btn-${props.c1} btn-sm me-1`} onClick={props.color1}>Blue</button>
                 <button type="button" className={`btn btn-${props.c2} btn-sm me-1`} onClick={props.color2}>Red</button>
-                <button type="button" className={`btn btn-${props.c3} btn-sm`} onClick={props.color3}>Green</button>
+                <button type="button" className={`btn btn-${props.c3} btn-sm me-3`} onClick={props.color3}>Green</button>
             </form>
 
             <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
